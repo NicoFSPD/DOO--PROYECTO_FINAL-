@@ -12,8 +12,7 @@ import java.util.List;
 
 public class Tutor extends Usuario {
     private double tarifaPorHora;
-
-    private List<Materia> materias; //mapa: "key" es el nombre de la materia y "value" es la cantidad de estudiantes máxima
+    private List<Materia> materias; 
 
     ///Constructor.
     public Tutor(String id, String nombre, String correo, double tarifaPorHora) {
@@ -23,7 +22,7 @@ public class Tutor extends Usuario {
     }
 
     ///Método para añadir una materia.
-    public void agregarMateria(String materia) {
+    public void agregarMateria(String nombreMateria, int cupoMaximo) {
         Materia nuevaMateria = new Materia(nombreMateria, cupoMaximo);
         this.materias.add(nuevaMateria);
     }
@@ -35,7 +34,7 @@ public class Tutor extends Usuario {
     public void setTarifaPorHora(double tarifaPorHora) {
         this.tarifaPorHora = tarifaPorHora;
     }
-    public List<String> getMaterias() {
+    public List<Materia> getMaterias() {
         return materias;
     }
 }

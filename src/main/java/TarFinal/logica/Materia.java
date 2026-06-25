@@ -2,7 +2,7 @@ package TarFinal.logica;
 
 
 public class Materia {
-    private String nombre:
+    private String nombre;
     private int cupoMaximo;
 
     public Materia(String nombre, int cupoMaximo){
