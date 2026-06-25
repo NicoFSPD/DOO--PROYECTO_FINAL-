@@ -34,7 +34,7 @@ public class BloqueHorario {        //permite ver la disponibilidad de clases en
         this.diaSemana = diaSemana;
     }
 
-    public LocalTime gettHoraInicio(){
+    public LocalTime getHoraInicio(){
         return horaInicio;
     }
 
