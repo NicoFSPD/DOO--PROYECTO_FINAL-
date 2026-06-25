@@ -7,14 +7,16 @@ import java.util.List;
  * Clase Tutor encargado de impartir clases particulares.
  * Contiene información sobre sus tarifas y agenda.
  * @author Daniel López
- * @version 1.0, 19/06/2026
+ * @version 1.1, 24/06/2026
  */
 
 public class Tutor extends Usuario {
     private double tarifaPorHora;
-    private List<String> materias;
+
+    private List<Materia> materias; //mapa: "key" es el nombre de la materia y "value" es la cantidad de estudiantes máxima
+
     ///Constructor.
-    public Tutor(String id, String nombre, String correo) {
+    public Tutor(String id, String nombre, String correo, double tarifaPorHora) {
         super(id, nombre, correo);
         this.materias = new ArrayList<>();
         this.tarifaPorHora = tarifaPorHora;
@@ -22,7 +24,8 @@ public class Tutor extends Usuario {
 
     ///Método para añadir una materia.
     public void agregarMateria(String materia) {
-        this.materias.add(materia);
+        Materia nuevaMateria = new Materia(nombreMateria, cupoMaximo);
+        this.materias.add(nuevaMateria);
     }
 
     ///Getters y setters.
