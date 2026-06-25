@@ -16,7 +16,7 @@ public class GestorReservas{
         this.estudiantes= new ArrayList<>();
         this.reservas= new ArrayList<>();
     }
-    
+
     public static GestorReservas getInstancia(){
         if (instancia == null) {
             instancia = new GestorReservas();
