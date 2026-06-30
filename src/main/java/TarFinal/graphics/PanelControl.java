@@ -1,6 +1,11 @@
 package TarFinal.graphics;
 
 import javax.swing.*;
+import java.awt.*;
+
+/**Panel de controles de gestion de reservas
+ * @author Nicolas Silva
+ * @version v1.0 - 29 de Junio de 2026*/
 
 public class PanelControl extends JPanel {
 

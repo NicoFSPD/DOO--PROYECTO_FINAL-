@@ -1,4 +1,6 @@
 package TarFinal.graphics;
 
-public class PanelHorarios {
+import javax.swing.*;
+
+public class PanelHorarios extends JPanel {
 }
