@@ -12,11 +12,11 @@ public class Ventana extends JFrame {
     //CONSTRUCTOR PRINCIPAL DE VENTANA
     public Ventana(){
         super();
-        this.setTitle("Maquina expendedora");
+        this.setTitle("SISTEMA DE RESERVAS");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         PanelPrincipal panelPrincipal = new PanelPrincipal();
         this.add(panelPrincipal);
-        this.setSize(1290, 755);
+        this.setSize(1400, 600);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
