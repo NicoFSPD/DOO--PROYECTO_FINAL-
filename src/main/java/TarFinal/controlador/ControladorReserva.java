@@ -24,4 +24,12 @@ public class ControladorReserva{
         BloqueHorario nuevoHorario = new BloqueHorario(diaSemana, horaInicio, horaFin);
         return gestor.agendarClase(idReserva, estudiante, tutorActual, materia, nuevoHorario);
     }
+
+    public boolean modificarReserva(String idReserva, String nuevoDia, LocalTime nuevaHoraInicio, LocalTime nuevaHoraFin) {
+        return false;
+    }
+
+    public boolean anularReserva(String idReserva) {
+        return false;
+    }
 }
