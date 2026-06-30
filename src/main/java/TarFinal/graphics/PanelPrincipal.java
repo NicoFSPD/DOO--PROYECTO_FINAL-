@@ -27,7 +27,7 @@ public class PanelPrincipal extends JPanel {
         this.gestor = GestorReservas.getInstancia();
 
         this.calendario = new PanelCalendario();
-        this.tutores = new PanelTutores();
+        this.tutores = new PanelTutores(gestor);
         this.horarios = new PanelHorarios();
         this.controles = new PanelControl();
 
