@@ -42,6 +42,9 @@ public class PanelPrincipal extends JPanel {
         this.add(horarios);
     }
 
+    private void add(PanelHorarios horarios) {
+    }
+
     /**
      * Limpia la pantalla invocando a la superclase y deja que swing maneje
      * el dibujo de forma nativa.
@@ -51,5 +54,5 @@ public class PanelPrincipal extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
-
+    
 }

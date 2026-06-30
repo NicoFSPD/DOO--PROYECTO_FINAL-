@@ -1,6 +1,6 @@
 package TarFinal.graphics;
 
-import javax.swing.*;
-
-public class PanelHorarios extends JPanel {
+public class PanelHorarios {
+    public void setBounds(int x, int y, int weight, int height) {
+    }
 }
