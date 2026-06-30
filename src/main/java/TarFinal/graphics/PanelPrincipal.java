@@ -25,6 +25,21 @@ public class PanelPrincipal extends JPanel {
         this.setLayout(null);
 
         this.gestor = GestorReservas.getInstancia();
+
+        this.calendario = new PanelCalendario();
+        this.tutores = new PanelTutores();
+        this.horarios = new PanelHorarios();
+        this.controles = new PanelControl();
+
+        calendario.setBounds(0,0,800,600);
+        tutores.setBounds(800,300,300,300);
+        controles.setBounds(1100,0,300,300);
+        horarios.setBounds(1100,300,300,300);
+
+        this.add(calendario);
+        this.add(tutores);
+        this.add(controles);
+        this.add(horarios);
     }
 
     /**
