@@ -3,6 +3,7 @@ package TarFinal.logica;
 /**
  * Superclase que tiene la finalidad otorgar funciones básicas a los 3 tipos de
  * usuarios distintos, administrador, tutor y estudiante.
+ * Uso del patrón factory para la creación de los distintos tipos de usuarios del programa.
  * @author Daniel López
  * @version 1.0, 19/06/2026
  */
