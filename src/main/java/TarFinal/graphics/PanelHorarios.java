@@ -54,6 +54,7 @@ public class PanelHorarios extends JPanel{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-
+        g.setColor(Color.DARK_GRAY);
+        g.drawString("HORARIOS:",30,30);
     }
 }
