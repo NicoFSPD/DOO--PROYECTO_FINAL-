@@ -8,6 +8,10 @@ import TarFinal.logica.Tutor;
 import javax.swing.*;
 import java.awt.*;
 
+/**Modulo principal que orquesta he inicializa a los demas sub-paneles
+ * @author Nicolas Silva
+ * @version v2.0 - 01 de Julio de 2026*/
+
 public class PanelPrincipal extends JPanel {
 
     private PanelTutores tutores;
@@ -21,6 +25,7 @@ public class PanelPrincipal extends JPanel {
     private Administrador modeloAdmin;
     private GestorReservas gestor;
 
+    /**Constructor del panel principal*/
     public PanelPrincipal() {
         this.setBackground(Color.CYAN);
         this.setLayout(null);
@@ -44,9 +49,6 @@ public class PanelPrincipal extends JPanel {
         this.add(controles);
         this.add(horarios);
         this.add(informacion);
-    }
-
-    private void add(PanelHorarios horarios) {
     }
 
     /**
