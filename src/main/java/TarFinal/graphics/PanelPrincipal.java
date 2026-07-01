@@ -14,6 +14,7 @@ public class PanelPrincipal extends JPanel {
     private PanelCalendario calendario;
     private PanelControl controles;
     private PanelHorarios horarios;
+    private PanelInfo informacion;
 
     private Estudiante modeloEst;
     private Tutor modeloTutor;
@@ -30,16 +31,19 @@ public class PanelPrincipal extends JPanel {
         this.tutores = new PanelTutores(gestor);
         this.horarios = new PanelHorarios();
         this.controles = new PanelControl();
+        this.informacion = new PanelInfo();
 
         calendario.setBounds(0,0,800,600);
         tutores.setBounds(800,300,300,300);
         controles.setBounds(1100,0,300,300);
         horarios.setBounds(1100,300,300,300);
+        informacion.setBounds(800,0,300,300);
 
         this.add(calendario);
         this.add(tutores);
         this.add(controles);
         this.add(horarios);
+        this.add(informacion);
     }
 
     private void add(PanelHorarios horarios) {
