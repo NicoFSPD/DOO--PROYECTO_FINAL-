@@ -12,6 +12,7 @@ public class PanelHorarios extends JPanel{
 
     private JPanel panelBloques;
     private ArrayList<JRadioButton> horas;
+    private String horarioSeleccionado = "";
 
     /**Constructor de la clase*/
     public PanelHorarios(){
@@ -28,6 +29,10 @@ public class PanelHorarios extends JPanel{
         JRadioButton b1 = new JRadioButton("12:00 - 14:00");
         JRadioButton b2 = new JRadioButton("15:00 - 17:00");
         JRadioButton b3 = new JRadioButton("18:00 - 20:00");
+
+        b1.addActionListener(e -> horarioSeleccionado = b1.getText());
+        b2.addActionListener(e -> horarioSeleccionado = b2.getText());
+        b3.addActionListener(e -> horarioSeleccionado = b3.getText());
 
         //Agruparlos para seleccion tipo XOR
         ButtonGroup grupo = new ButtonGroup();
@@ -47,6 +52,10 @@ public class PanelHorarios extends JPanel{
 
     public ArrayList<JRadioButton> getHoras() {
         return horas;
+    }
+
+    public String getHorarioSeleccionado() {
+        return horarioSeleccionado;
     }
 
     /**Metodo paintComponent() para la clase*/
