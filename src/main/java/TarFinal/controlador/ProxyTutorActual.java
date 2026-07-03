@@ -1,18 +1,18 @@
 package TarFinal.controlador;
 import TarFinal.logica.Tutor;
 
-public class ProxyTutorActual{
-    private static ProxyTutorActual instancia;
+public class GestorSeleccion{
+    private static GestorSeleccion instancia;
     private Tutor tutorSeleccionado;
 
     // Constructor privado (Singleton)
-    private ProxyTutorActual(){ //constructor
+    private GestorSeleccion(){ //constructor
 
     }
 
-    public static ProxyTutorActual getInstancia(){
+    public static GestorSeleccion getInstancia(){
         if (instancia== null){
-            instancia= new ProxyTutorActual();
+            instancia= new GestorSeleccion();
         }
         return instancia;
     }
