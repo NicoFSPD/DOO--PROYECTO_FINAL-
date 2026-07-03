@@ -60,14 +60,13 @@ public class GestorReservas{
         }
 
         int inscritos = 0; //revision de cupos disponibles en la materia
-        for (Reserva r : reservas) {
-            // Si la reserva es del mismo tutor y la misma materia, sumamos 1 al contador
-            if (r.getTutor().getId().equals(tutor.getId()) && r.getMateria().getNombre().equalsIgnoreCase(materia.getNombre())) {
+        for (Reserva r : reservas){
+            if (r.getTutor().getId().equals(tutor.getId()) && r.getMateria().getNombre().equalsIgnoreCase(materia.getNombre())){
                 inscritos++;
             }
         }
 
-        if (inscritos >= materia.getCupoMaximo()) { //metodo que revisa si se supero el limite
+        if (inscritos >= materia.getCupoMaximo()){ // revisa si se supero el limite
             System.out.println("error, no quedan cupos para " + materia.getNombre() + " con este tutor");
             return false;
         }
@@ -79,7 +78,20 @@ public class GestorReservas{
     }
 
 
-    
+    public boolean cancelarReserva(String idReserva){  //metodo para cancelar la reserva
+        for (int i = 0; i < reservas.size(); i++){
+            if (reservas.get(i).getIdReserva().equals(idReserva)){
+                reservas.remove(i);
+                System.out.println("Reserva " + idReserva + " cancelada");
+                return true;
+            }
+        }
+        System.out.println("error, no existe la reserva " + idReserva); //si no se encuenra el ID ingresado, entonces no se cancela nada y notifica
+        return false;
+    }
+
+
+
 
 
 
