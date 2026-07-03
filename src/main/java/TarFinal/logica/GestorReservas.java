@@ -49,6 +49,39 @@ public class GestorReservas{
         return true;
     }
 
+    public boolean agendarClase(String idReserva, Estudiante estudiante, Tutor tutor, Materia materia, BloqueHorario horarioSolicitado) {
+        for (Reserva r : reservas) {        //revisa que el tutor no tenga choque de horarios
+            if (r.getTutor().getId().equals(tutor.getId())) {
+                if (r.getHorario().choqueHorario(horarioSolicitado)) {
+                    System.out.println("ERROR: El tutor " + tutor.getNombre() + " ya tiene una clase en ese horario.");
+                    return false;
+                }
+            }
+        }
+
+        int inscritos = 0; //revision de cupos disponibles en la materia
+        for (Reserva r : reservas) {
+            // Si la reserva es del mismo tutor y la misma materia, sumamos 1 al contador
+            if (r.getTutor().getId().equals(tutor.getId()) && r.getMateria().getNombre().equalsIgnoreCase(materia.getNombre())) {
+                inscritos++;
+            }
+        }
+
+        if (inscritos >= materia.getCupoMaximo()) { //metodo que revisa si se supero el limite
+            System.out.println("error, no quedan cupos para " + materia.getNombre() + " con este tutor");
+            return false;
+        }
+
+        Reserva nuevaReserva = new Reserva(idReserva, estudiante, tutor, materia, horarioSolicitado);   //crea la reserva
+        reservas.add(nuevaReserva);
+        System.out.println("Clase " + idReserva + " agendada con correctamente.");
+        return true;
+    }
+
+
+    
+
+
 
     public List<Reserva> getReservas(){
         return reservas;
