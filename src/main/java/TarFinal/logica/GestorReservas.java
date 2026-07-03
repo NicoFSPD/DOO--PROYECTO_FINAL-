@@ -90,6 +90,57 @@ public class GestorReservas{
         return false;
     }
 
+    public boolean modificarReserva(String idReserva, BloqueHorario nuevoHorario){
+        Reserva reservaEncontrada = null;
+
+        for(Reserva r :reservas){   //busqueda de la reserva que se desea modificar
+            if(r.getIdReserva().equals(idReserva)){
+                reservaEncontrada= r;
+                break;
+            }
+        }
+
+        if (reservaEncontrada==null){
+            System.out.println("error, esta reserva no existe");
+            return false;
+        }
+
+        for (Reserva r:reservas){   //nueva validacion para revisar los choques horarios (excepto la misma reserva, q es la que estamos cambiando)
+            if (!r.getIdReserva().equals(idReserva) && r.getTutor().getId().equals(reservaEncontrada.getTutor().getId())) {
+                if(r.getHorario().choqueHorario(nuevoHorario)){
+                    System.out.println("error, horario no disponibilidad por choque horario del tutor");
+                    return false;
+                }
+            }
+        }
+
+        reservaEncontrada.setHorario(nuevoHorario); //actualizacion del horario
+        System.out.println("Reserva " + idReserva + " modificada correctamente");
+        return true;
+    }
+
+
+        //meotodos para revisar perfil de cada uno, profesor y estudiante
+    public List<Reserva> obtenerReservasPorTutor(String idTutor){   //metodo getter de las clases del tutor
+        List<Reserva> filtradas = new ArrayList<>();
+        for (Reserva r :reservas) {
+            if (r.getTutor().getId().equals(idTutor)){
+                filtradas.add(r);
+            }
+        }
+        return filtradas;
+    }
+
+    public List<Reserva> obtenerReservasPorEstudiante(String idEstudiante){ //metodo getter de las clases del estudiante
+        List<Reserva> filtradas = new ArrayList<>();
+        for (Reserva r :reservas){
+            if (r.getEstudiante().getId().equals(idEstudiante)){
+                filtradas.add(r);
+            }
+        }
+        return filtradas;
+    }
+
 
 
 
