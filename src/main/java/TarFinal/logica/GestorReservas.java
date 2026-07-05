@@ -32,28 +32,11 @@ public class GestorReservas{
         estudiantes.add(estudiante);
     }
 
-
-    public boolean agendarClase(String idReserva, Estudiante estudiante, Tutor tutor, Materia materia, BloqueHorario horarioSolicitado) {   //metodo para validar y reservar
+    public boolean agendarClase(String idReserva, Estudiante estudiante, Tutor tutor, Materia materia, BloqueHorario horarioSolicitado) {
         for (Reserva reservaExistente : reservas){  //valida el horario disp para el tutor en cuestion
             if (reservaExistente.getTutor().getId().equals(tutor.getId())){
                 if (reservaExistente.getHorario().choqueHorario(horarioSolicitado)){
                     System.out.println("ERROR: no se pudo agendar la clase ya que el tutor " + tutor.getNombre() + " ya tiene una clase en ese horario");
-                    return false;
-                }
-            }
-        }
-
-        Reserva nuevaReserva = new Reserva(idReserva, estudiante, tutor, materia, horarioSolicitado);   //si pasa lo anterior es pq el horari oestá disp
-        reservas.add(nuevaReserva);
-        System.out.println("Clase " + idReserva + " agendada correctamente");
-        return true;
-    }
-
-    public boolean agendarClase(String idReserva, Estudiante estudiante, Tutor tutor, Materia materia, BloqueHorario horarioSolicitado) {
-        for (Reserva r : reservas) {        //revisa que el tutor no tenga choque de horarios
-            if (r.getTutor().getId().equals(tutor.getId())) {
-                if (r.getHorario().choqueHorario(horarioSolicitado)) {
-                    System.out.println("ERROR: El tutor " + tutor.getNombre() + " ya tiene una clase en ese horario.");
                     return false;
                 }
             }
