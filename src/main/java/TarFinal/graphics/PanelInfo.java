@@ -5,7 +5,8 @@ import java.awt.*;
 
 /**Panel para mostrar informacion al usuario en lo que interactua con el programa
  * @author Nicolas Silva
- * @version v1.0 - 05 de Julio de 2026
+ * @author Daniel López
+ * @version v1.1 - 05 de Julio de 2026
  **/
 
 public class PanelInfo extends JPanel {
@@ -26,6 +27,7 @@ public class PanelInfo extends JPanel {
 
 /// Constructor de la clase
     public PanelInfo(){
+        this.contenedor = new JPanel();
         setLayout(null);
 
         cartel = new CardLayout();
