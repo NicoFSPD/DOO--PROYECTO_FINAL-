@@ -8,33 +8,36 @@ import java.time.LocalTime;
  * interfaz lógica.
  * @author Eduardo Riveros
  * @author Daniel López
- * @version v1.1 - 5 de julio de 2026
+ * @version v1.2 - 5 de julio de 2026
  */
-public class ControladorReserva{
+public class ControladorReserva {
 
     private GestorReservas gestor;
     private GestorSeleccion proxy;
 
-    ///Método constructor que inicializa las variables para trabajar con ellas
+    /// Método constructor que inicializa las variables para trabajar con ellas
     public ControladorReserva() {
         this.gestor = GestorReservas.getInstancia();
         this.proxy = GestorSeleccion.getInstancia();
     }
 
-    ///Método que se usa cuando se aprieta el botón para agendar en la interfaz
+    /// Método que se usa cuando se aprieta el botón para agendar en la interfaz
     public boolean procesarNuevaReserva(String idReserva, Estudiante estudiante, Materia materia, String diaSemana, LocalTime horaInicio, LocalTime horaFin) {
         if (!proxy.hayTutorSeleccionado()) {
-            System.out.println("error, se debe seleccionar un tutor antes de agendar una clase");
-            return false;
+            throw new IllegalStateException("Se debe seleccionar un tutor antes de agendar una clase");
         }
-
-        Tutor tutorActual = proxy.getTutorSeleccionado();
         BloqueHorario nuevoHorario = new BloqueHorario(diaSemana, horaInicio, horaFin);
-        return gestor.agendarClase(idReserva, estudiante, tutorActual, materia, nuevoHorario);
+        return gestor.agendarClase(idReserva, estudiante, proxy.getTutorSeleccionado(), materia, nuevoHorario);
     }
 
-    ///Método utilizado para cancelar las reservas en la interfaz
+    /// Método utilizado para cancelar las reservas en la interfaz
     public boolean anularReserva(String id) {
         return gestor.cancelarReserva(id);
+    }
+
+    /// Método utilizado para modificar el horario de una reserva existente
+    public boolean modificarReserva(String idReserva, String diaSemana, LocalTime horaInicio, LocalTime horaFin) {
+        BloqueHorario nuevoHorario = new BloqueHorario(diaSemana, horaInicio, horaFin);
+        return gestor.modificarReserva(idReserva, nuevoHorario);
     }
 }
