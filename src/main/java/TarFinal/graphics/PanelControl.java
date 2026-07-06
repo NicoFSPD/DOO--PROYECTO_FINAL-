@@ -1,20 +1,23 @@
 package TarFinal.graphics;
 
 import TarFinal.controlador.ControladorReserva;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**Panel de controles de gestion de reservas
+/**Panel de controles de gestion de reservas.
  * @author Nicolas Silva
- * @version v1.0 - 29 de Junio de 2026*/
+ * @author Daniel López
+ * @version v1.1 - 5 de Julio de 2026*/
 
 public class PanelControl extends JPanel {
 
     private JPanel panelAcciones;
     private ControladorReserva controlador;
 
+    ///Inicializa el panel, instancia el controlador y configura los botones de acción.
     public PanelControl() {
         this.setLayout(null);
         this.controlador = new ControladorReserva();
@@ -56,6 +59,9 @@ public class PanelControl extends JPanel {
         this.add(panelAcciones);
     }
 
+    /**
+     * Genera un cuadro de diálogo para solicitar el ID de una nueva reserva.
+     */
     private void ejecutarCrearReserva() {
         String id = JOptionPane.showInputDialog(this, "Ingrese ID de la nueva reserva:");
         if (id != null && !id.trim().isEmpty()) {
@@ -63,6 +69,9 @@ public class PanelControl extends JPanel {
         }
     }
 
+    /**
+     * Despliega un cuadro de diálogo para solicitar el ID de la reserva a modificar.
+     */
     private void ejecutarModificarReserva() {
         String id = JOptionPane.showInputDialog(this, "Ingrese el ID de la reserva a modificar:");
         if (id != null && !id.trim().isEmpty()) {
@@ -70,6 +79,9 @@ public class PanelControl extends JPanel {
         }
     }
 
+    /**
+     * Solicita el ID mediante un cuadro de diálogo y delega la anulación al controlador.
+     */
     private void ejecutarAnularReserva() {
         String id = JOptionPane.showInputDialog(this, "Ingrese el ID de la reserva a anular:");
         if (id != null && !id.trim().isEmpty()) {
