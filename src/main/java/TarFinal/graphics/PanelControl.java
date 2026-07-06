@@ -65,7 +65,22 @@ public class PanelControl extends JPanel {
     private void ejecutarCrearReserva() {
         String id = JOptionPane.showInputDialog(this, "Ingrese ID de la nueva reserva:");
         if (id != null && !id.trim().isEmpty()) {
-            System.out.println("Procesando formulario para reserva ID: " + id);
+            TarFinal.controlador.GestorSeleccion proxy = TarFinal.controlador.GestorSeleccion.getInstancia();
+
+            boolean exito = controlador.procesarNuevaReserva(
+                    id,
+                    proxy.getEstudianteSeleccionado(),
+                    proxy.getMateriaSeleccionada(),
+                    proxy.getDiaSeleccionado(),
+                    proxy.getHoraInicio(),
+                    proxy.getHoraFin()
+            );
+
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Reserva creada con exito.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error: Faltan datos por seleccionar o hay tope de horario.", "Error al Agendar", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
