@@ -55,6 +55,7 @@ public class PanelCalendario extends JPanel {
                 btnDia.setFont(new Font("Arial", Font.BOLD, 16));
                 btnDia.addActionListener(e -> {
                     System.out.println("Día seleccionado: " + dia);
+                    TarFinal.controlador.GestorSeleccion.getInstancia().setDiaSeleccionado(dia);
                 });
                 panelFechas.add(btnDia);
                 this.fechas.add(btnDia);
