@@ -1,5 +1,10 @@
 package TarFinal.logica;
 
+/**
+ * Clase que representa una reserva agendada en el sistema
+ * @author Eduardo Riveros
+ * @version v1.0 - 6 de julio de 2026
+ */
 public class Reserva {
     private String idReserva;
     private Estudiante estudiante;
@@ -7,6 +12,7 @@ public class Reserva {
     private Materia materia;
     private BloqueHorario horario;
 
+    /// Constructor de la clase.
     public Reserva(String idReserva, Estudiante estudiante, Tutor tutor, Materia materia, BloqueHorario horario){
         this.idReserva= idReserva;
         this.estudiante = estudiante;
@@ -15,6 +21,7 @@ public class Reserva {
         this.horario = horario;
     }
 
+    /// Getters y setters.
     public String getIdReserva(){
         return idReserva;
     }

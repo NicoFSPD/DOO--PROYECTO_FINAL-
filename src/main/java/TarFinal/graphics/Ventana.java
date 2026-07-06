@@ -3,13 +3,13 @@ package TarFinal.graphics;
 import javax.swing.*;
 
 /**
- * Se hara reutilizacion de multiples features de la tarea 3 en lo que contempla a GUI
+ * Clase encargada de desplegar la ventana para el funcionamiento de la aplicación.
  * @author Nicolas Silva
- * @version v1.0 - 29 de Junio de 2026
+ * @version v1.0 - 29 de junio de 2026
  * */
 public class Ventana extends JFrame {
 
-    //CONSTRUCTOR PRINCIPAL DE VENTANA
+    /// CONSTRUCTOR PRINCIPAL DE VENTANA
     public Ventana(){
         super();
         this.setTitle("SISTEMA DE RESERVAS");
