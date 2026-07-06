@@ -28,9 +28,10 @@ public class PanelInfo extends JPanel {
 /// Constructor de la clase
     public PanelInfo(){
         this.contenedor = new JPanel();
+        cartel = new CardLayout();
+        this.contenedor.setLayout(cartel);
         setLayout(null);
 
-        cartel = new CardLayout();
         contenedor.setBounds(10,10,280,280);
 
         /// Cartel que aparece en la primera interaccion con el programa
