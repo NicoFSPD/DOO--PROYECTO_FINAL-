@@ -8,7 +8,7 @@ import java.time.LocalTime;
  * interfaz lógica.
  * @author Eduardo Riveros
  * @author Daniel López
- * @version v1.2 - 5 de julio de 2026
+ * @version v1.3 - 5 de julio de 2026
  */
 public class ControladorReserva {
 
@@ -27,7 +27,7 @@ public class ControladorReserva {
             throw new IllegalStateException("Se debe seleccionar un tutor antes de agendar una clase");
         }
         BloqueHorario nuevoHorario = new BloqueHorario(diaSemana, horaInicio, horaFin);
-        return gestor.agendarClase(idReserva, estudiante, proxy.getTutorSeleccionado(), materia, nuevoHorario);
+        return gestor.agendarReserva(idReserva, estudiante, proxy.getTutorSeleccionado(), materia, nuevoHorario);
     }
 
     /// Método utilizado para cancelar las reservas en la interfaz
