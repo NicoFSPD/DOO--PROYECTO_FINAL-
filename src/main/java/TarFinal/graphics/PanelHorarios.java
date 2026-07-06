@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 /**Panel de los horarios a decision del usuario para agendar
  * @author Nicolas Silva
- * @version v1.0 - 1 de Julio de 2026*/
+ * @author Daniel López
+ * @version v1.1 - 1 de Julio de 2026*/
 public class PanelHorarios extends JPanel{
 
 
@@ -28,6 +29,21 @@ public class PanelHorarios extends JPanel{
         JRadioButton b1 = new JRadioButton("12:00 - 14:00");
         JRadioButton b2 = new JRadioButton("15:00 - 17:00");
         JRadioButton b3 = new JRadioButton("18:00 - 20:00");
+
+        b1.addActionListener(e -> {
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraInicio(java.time.LocalTime.of(12, 0));
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraFin(java.time.LocalTime.of(14, 0));
+        });
+
+        b2.addActionListener(e -> {
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraInicio(java.time.LocalTime.of(15, 0));
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraFin(java.time.LocalTime.of(17, 0));
+        });
+
+        b3.addActionListener(e -> {
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraInicio(java.time.LocalTime.of(18, 0));
+            TarFinal.controlador.GestorSeleccion.getInstancia().setHoraFin(java.time.LocalTime.of(20, 0));
+        });
 
         //Agruparlos para seleccion tipo XOR
         ButtonGroup grupo = new ButtonGroup();
