@@ -56,8 +56,8 @@ public class PanelControl extends JPanel {
 
         comboMaterias = new JComboBox<>();
         comboMaterias.addItem("Seleccione Materia...");
-        comboMaterias.addItem("Calculo II");
-        comboMaterias.addItem("Programacion Java");
+        comboMaterias.addItem("Arquitectura de computadores");
+        comboMaterias.addItem("Desarrollo orientado a objetos");
 
         comboMaterias.addActionListener(new ActionListener() {
             @Override
