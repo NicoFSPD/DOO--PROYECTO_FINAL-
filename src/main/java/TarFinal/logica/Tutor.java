@@ -50,18 +50,23 @@ public class Tutor extends Usuario {
      */
     public boolean tieneDisponibilidad(BloqueHorario horarioSolicitado) {
         String[] nombresDias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
-        int numDia = -1;
 
+        int numDiaSolicitado = -1;
         try {
-            numDia = Integer.parseInt(horarioSolicitado.getDiaSemana());
+            numDiaSolicitado = Integer.parseInt(horarioSolicitado.getDiaSemana());
         } catch (NumberFormatException e) {
-            numDia = -1;
         }
-
-        String diaSemanaSolicitado = (numDia != -1) ? nombresDias[numDia % 7] : horarioSolicitado.getDiaSemana();
+        String diaSemanaSolicitado = (numDiaSolicitado != -1) ? nombresDias[numDiaSolicitado % 7] : horarioSolicitado.getDiaSemana();
 
         for (BloqueHorario bloque : disponibilidad) {
-            if (bloque.getDiaSemana().equalsIgnoreCase(diaSemanaSolicitado)) {
+            int numDiaBloque = -1;
+            try {
+                numDiaBloque = Integer.parseInt(bloque.getDiaSemana());
+            } catch (NumberFormatException e) {
+            }
+            String diaSemanaBloque = (numDiaBloque != -1) ? nombresDias[numDiaBloque % 7] : bloque.getDiaSemana();
+
+            if (diaSemanaBloque.equalsIgnoreCase(diaSemanaSolicitado)) {
                 if ((horarioSolicitado.getHoraInicio().equals(bloque.getHoraInicio()) || horarioSolicitado.getHoraInicio().isAfter(bloque.getHoraInicio())) &&
                         (horarioSolicitado.getHoraFin().equals(bloque.getHoraFin()) || horarioSolicitado.getHoraFin().isBefore(bloque.getHoraFin()))) {
                     return true;
